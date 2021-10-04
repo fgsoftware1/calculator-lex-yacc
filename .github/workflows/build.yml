@@ -1,0 +1,21 @@
+name: build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: deps
+      run: sudo bash ./linux-deps.sh
+    - name: build
+      run: bash ./autogen.sh
+    - name: check-files
+      run: ls
