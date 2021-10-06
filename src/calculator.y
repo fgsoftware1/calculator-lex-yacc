@@ -14,7 +14,7 @@
 %token RIGHT
 %token END
 
-%start line
+%start program expr
 %%
 
 program:
