@@ -8,7 +8,7 @@
 
 [0-9]+	{
 					yylval = atoi(yytext);
-          return INTEGER;
+          return NUMBER;
         }
 [-+*/\n]	return *yytext;
 PLUS      return '+';
