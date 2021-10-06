@@ -15,7 +15,7 @@ DIVIDE      return '/';
 .           yyerror("invalid character");
 
 %%
-
+white	{}
 [0-9]+ 	{
 					yylval = atoi(yytext);
 					return NUMBER;

@@ -23,10 +23,10 @@ program:
   ;
 expr:
 	NUMBER	{$$=$1;}
-	|	Expression PLUS	Expression{$$=$1+$3;}
-	|	Expression MINUS	Expression{$$=$1-$3;}
-	|	Expression TIMES	Expression{$$=$1*$3;}
-	|	Expression DIVIDE Expression{$$=$1/$3;}
+	|	expr PLUS	expr{$$=$1+$3;}
+	|	expr MINUS	expr{$$=$1-$3;}
+	|	expr TIMES	expr{$$=$1*$3;}
+	|	expr DIVIDE expr{$$=$1/$3;}
 	;
 
 %%
