@@ -1,4 +1,5 @@
 %{
+	#define YYSTYPE double
 	#include <stdlib.h>
 	#include "y.tab.h"
 	void yyerror(char *);

@@ -9,17 +9,14 @@
 
 %token NUMBER
 
-%left NEG
-
 %%
 
 program:
-	'\n'
-	|	expr '\n' { printf("Result: %f\n", $1); }
+	program expr '\n' { printf("Result: %f\n", $2); }
+	|
   ;
 expr:
 	NUMBER	{	$$	=	$1;	}
-	|	'-' expr %prec NEG	{	$$ = -$2; }
 	|	'(' expr ')'	{	$$ = $2;	}
 	| expr '-' expr { $$ = $1 + $3; }
   | expr '-' expr { $$ = $1 - $3; }
