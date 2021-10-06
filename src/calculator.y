@@ -1,18 +1,9 @@
 %{
 	#define YYSTYPE double
-	#include <math.h>
 	#include <stdio.h>
-	#include <stdlib.h>
 %}
 
 %token NUMBER
-%token PLUS
-%token MINUS
-%token TIMES
-%token DIVIDE
-%token LEFT
-%token RIGHT
-%token END
 
 %start program expr
 %%
@@ -23,10 +14,10 @@ program:
   ;
 expr:
 	NUMBER	{$$=$1;}
-	|	expr '+'	expr{$$=$1+$3;}
-	|	expr '-'	expr{$$=$1-$3;}
-	|	expr TIMES	expr{$$=$1*$3;}
-	|	expr DIVIDE expr{$$=$1/$3;}
+	|	expr '+'	expr{	$$	=	$1	+	$3;	}
+	|	expr '-'	expr{	$$	=	$1	-	$3;	}
+	|	expr '*'	expr{	$$	=	$1	*	$3;	}
+	|	expr '/' expr{	$$	=	$1	/	$3;	}
 	;
 
 %%
