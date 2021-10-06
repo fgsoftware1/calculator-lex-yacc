@@ -2,7 +2,7 @@
 		#define YYSTYPE double
 		#include <stdlib.h>
 		#include "y.tab.h"
-		extern int yylval
+		extern int yylval;
 %}
 
 white	[ \t]+
@@ -12,7 +12,7 @@ digit [0-9]
 
 [0-9]+ 	{
 					yylval = atoi(yytext);
-					return INTEGER;
+					return NUMBER;
 				}
 [\t] ;
 .   return yytext[0];
