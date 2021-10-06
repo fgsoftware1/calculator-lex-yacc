@@ -36,6 +36,7 @@ void yyerror(char *s) {
 }
 
 int main(void) {
-yyparse();
+	printf("\nInsert any arithmetic expression\nyou can use following operations\nadd = n+n\nsubtract = n-n\nmultiply = n*n\ndivide = n\n");
+	yyparse();
 	return 0;
 }
