@@ -31,11 +31,11 @@ Expression:
 %%
 
 int main() {
-  printf("\nInsert any arithmetic expression\nyou can use following operations\nadd = n+n\nsubtract = n-n\nmultiply = n*n\ndivide = n/n");
+  printf("\nInsert any arithmetic expression\nyou can use following operations\nadd = n+n\nsubtract = n-n\nmultiply = n*n\ndivide = n\n");
   if(yyparse())
-		fprintf(stderr,"Sucefully parsing.\n");
+		printf("Result:	%f\n", $1);
 	else
-		fprintf(stderr,"Error ocurred.\n");
+		printf(stderr,"Error ocurred.\n");
 }
 
 int yyerror(char *s) {
