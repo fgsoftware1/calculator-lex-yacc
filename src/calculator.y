@@ -17,7 +17,7 @@ expr:
         | expr '/' expr { $$ = $1 / $3; }
         ;
 %%
-void yyerror(char *s) {  /* User Subroutines  */
+void yyerror(char *s) {
 fprintf(stderr, "%s\n", s);
 }
 int main(void) {
