@@ -2,7 +2,6 @@
 		#define YYSTYPE double
 		#include <stdlib.h>
 		#include "y.tab.h"
-		void yyerror(char *);
 %}
 
 white	[ \t]+
@@ -12,7 +11,6 @@ MINUS       return '-';
 MULTIPLY    return '*';
 TIMES       return '*';
 DIVIDE      return '/';
-.           yyerror("invalid character");
 
 %%
 white	{}
