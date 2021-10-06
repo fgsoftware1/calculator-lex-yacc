@@ -12,7 +12,7 @@
 %%
 
 program:
-	program expr '\n' { printf("Result: %f\n", $2); }
+	program expr '\n' { printf("Result: %d\n", $2); }
 	|
   ;
 expr:
