@@ -19,6 +19,7 @@ PLUS      return '+';
 MINUS     return '-';
 MULTIPLY  return '*';
 DIVIDE    return '/';
+MODULuS		return '%';
 [ \t] ;
 .        	yyerror("invalid character");
 
