@@ -26,7 +26,7 @@
 
 program:
 	END
-	|	expr END { printf("Result: %f\n", $1; }
+	|	expr END { printf("Result: %f\n", $1); }
   ;
 expr:
 	NUMBER	{	$$	=	$1;	}
@@ -40,7 +40,7 @@ expr:
 
 %%
 
-int yyerror(char *s) {
+void yyerror(char *s) {
 	printf("%s\n", s);
 }
 
