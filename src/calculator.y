@@ -22,6 +22,7 @@ expr:
   | expr '*' expr { $$ = $1 * $3; }
   | expr '/' expr { $$ = $1 / $3; }
 	|	expr '%' expr { $$ = $1 % $3; }
+	|	expr '^' expr { $$ = pow($1,$3); }
 	;
 
 %%
