@@ -5,7 +5,6 @@
 
 %token NUMBER
 
-%start program expr
 %%
 
 program:
@@ -27,7 +26,7 @@ void yyerror(char *s) {
 }
 
 int main(void) {
-	printf("\nInsert any arithmetic expression\nyou can use following operations\nadd = n+n\nsubtract = n-n\nmultiply = n*n\ndivide = n\n");
+	printf("\nInsert any arithmetic expression\nyou can use following operations\nadd = n+n\nsubtract = n-n\nmultiply = n*n\ndivide = n/n\n");
 	yyparse();
 	return 0;
 }
