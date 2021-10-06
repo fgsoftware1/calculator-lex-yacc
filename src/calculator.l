@@ -7,7 +7,7 @@
 white [ \t]+
 digit [0-9]
 integer	{digit}+
-exponent [eE] [+-]?{integer}
+exponent [eE][+-]?{integer}
 real {integer}("."{integer})?{exponent}?
 
 %%
