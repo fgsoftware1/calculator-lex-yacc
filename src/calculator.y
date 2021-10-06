@@ -1,6 +1,8 @@
 %{
 	#define YYSTYPE double
 	#include <stdio.h>
+	int yylex(void);
+	void yyerror(char *);
 %}
 
 %token NUMBER
@@ -12,7 +14,7 @@ program:
   |
   ;
 expr:
-	NUMBER	{$$=$1;}
+	NUMBER	{	$$	=	$1;	}
 	|	expr '+'	expr{	$$	=	$1	+	$3;	}
 	|	expr '-'	expr{	$$	=	$1	-	$3;	}
 	|	expr '*'	expr{	$$	=	$1	*	$3;	}
