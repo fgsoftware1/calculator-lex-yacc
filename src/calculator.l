@@ -14,7 +14,7 @@ real {integer}("."{integer})?{exponent}?
 
 {white} {	}
 {real}	{
-	yyval = atof(yytext);
+	yylval = atof(yytext);
 	return NUMBER;
 }
 "\n": return END;
