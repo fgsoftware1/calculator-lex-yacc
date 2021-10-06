@@ -1,14 +1,18 @@
 %{
+	#define YYSTYPE double
 	#include <stdio.h>
 	int yylex(void);
 	void yyerror(char *);
 %}
 
 %token NUMBER
+%token END
 %token PLUS
 %token MINUS
 %token MULTIPLY
 %token DIVIDE
+%token LEFT
+%token RIGHT
 
 %left PLUS
 %left MINUS
@@ -25,6 +29,8 @@ program:
   ;
 expr:
 	NUMBER	{	$$	=	$1;	}
+	|	MINUS expr %prec NEG	{	$$ = -$2 }
+	|	LEFT expr RIGHT	{	$$ = $2	}
 	| expr PLUS expr { $$ = $1 + $3; }
   | expr MINUS expr { $$ = $1 - $3; }
   | expr MULTIPLY expr { $$ = $1 * $3; }
