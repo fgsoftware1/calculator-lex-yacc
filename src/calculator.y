@@ -30,11 +30,14 @@ Expression:
 
 %%
 
-void main() {
+int main() {
   printf("\nInsert any arithmetic expression\nyou can use following operations\nadd = n+n\nsubtract = n-n\nmultiply = n*n\ndivide = n/n");
-  yyparse();
+  if(yyparse())
+		fprintf(stderr,"Sucefully parsing.\n");
+	else
+		fprintf(stderr,"Error ocurred.\n");
 }
 
-void yyerror() {
-  printf("\nentered expression is invalid");
+int yyerror(char *s) {
+  fprintf("%s\n",s);
 }
