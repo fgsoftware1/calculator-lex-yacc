@@ -16,7 +16,7 @@ MINUS       return '-';
 MULTIPLY    return '*';
 TIMES       return '*';
 DIVIDE      return '/';
-[+-*/\n]    return *yytext;
+[-+*/\n]    return *yytext;
 .   yyerror("invalid character");
 
 %%
