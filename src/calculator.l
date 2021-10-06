@@ -11,9 +11,9 @@
 					yylval = atoi(yytext);
           return NUMBER;
         }
-LEFT			return '('
-RIGHT			return ')'
-END 			return '\n'
+LEFT			return '(';
+RIGHT			return ')';
+END 			return '\n';
 PLUS      return '+';
 MINUS     return '-';
 MULTIPLY  return '*';
