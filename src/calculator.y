@@ -1,5 +1,8 @@
 %{
+	#define YYSTYPE double
+	#include <math.h>
 	#include <stdio.h>
+	#include <stdlib.h>
 	int yylex(void);
 	void yyerror(char *);
 %}
@@ -23,8 +26,7 @@
 
 program:
 	END
-	program expr END { printf("%d\n", $2); }
-  |
+	|	expr END { printf("Result: %f\n", $1; }
   ;
 expr:
 	NUMBER	{	$$	=	$1;	}
@@ -38,12 +40,11 @@ expr:
 
 %%
 
-void yyerror(char *s) {
-	fprintf(stderr, "%s\n", s);
+int yyerror(char *s) {
+	printf("%s\n", s);
 }
 
-int main(void) {
+int main() {
 	printf("\nInsert any arithmetic expression\nyou can use following operations\nadd = n+n\nsubtract = n-n\nmultiply = n*n\ndivide = n/n\n");
 	yyparse();
-	return 0;
 }
