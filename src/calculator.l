@@ -13,9 +13,9 @@ MINUS       return '-';
 MULTIPLY    return '*';
 TIMES       return '*';
 DIVIDE      return '/';
-[ \t] ;     /* skip whitespace */
+[ \t] ;
 .           yyerror("invalid character");
 %%
 int yywrap(void) {
-return 1;
+    return 1;
 }
