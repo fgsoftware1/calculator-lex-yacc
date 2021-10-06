@@ -8,4 +8,4 @@ y.tab.c: calculator.y
 	flex calculator.l
 
 ../calculator: y.tab.c lex.yy.c
-	cc y.tab.c lex.yy.c -o $@ -lfl
+	cc y.tab.c lex.yy.c -o $@ -lfl -lm

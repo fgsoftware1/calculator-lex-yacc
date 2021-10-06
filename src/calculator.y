@@ -15,10 +15,10 @@ program:
   ;
 expr:
 	NUMBER	{	$$	=	$1;	}
-	|	expr '+'	expr{	$$	=	$1	+	$3;	}
-	|	expr '-'	expr{	$$	=	$1	-	$3;	}
-	|	expr '*'	expr{	$$	=	$1	*	$3;	}
-	|	expr '/' expr{	$$	=	$1	/	$3;	}
+	| expr '+' expr { $$ = $1 + $3; }
+  | expr '-' expr { $$ = $1 - $3; }
+  | expr '*' expr { $$ = $1 * $3; }
+  | expr '/' expr { $$ = $1 / $3; }
 	;
 
 %%
