@@ -1,26 +1,45 @@
 %{
-#include <stdio.h>
-int yylex(void);
-void yyerror(char *);
+	#define YYSTYPE double
+	#include <math.h>
+	#include <stdio.h>
+	#include <stdlib.h>
 %}
-%token INTEGER
+
+%token NUMBER
+%token PLUS
+%token MINUS
+%token TIMES
+%token DIVIDE
+%token LEFT
+%token RIGHT
+%token END
+
+%start line
 %%
-program:
-        program expr '\n' { printf("%d\n", $2); }
-        |
-        ;
-expr:
-        INTEGER { $$ = $1; }
-        | expr '+' expr { $$ = $1 + $3; }
-        | expr '-' expr { $$ = $1 - $3; }
-        | expr '*' expr { $$ = $1 * $3; }
-        | expr '/' expr { $$ = $1 / $3; }
-        ;
+
+line:
+	END
+  |	Expression END {printf("Result:	%f\n", $1);}
+	;
+Expression:
+	NUMBER	{$$=$1;}
+	|	Expression PLUS	Expression{$$=$1+$3;}
+	|	Expression MINUS	Expression{$$=$1-$3}
+	|	Expression TIMES	Expression{$$=$1*$3}
+	|	Expression DIVIDE Expression{$$=$1/$3}
+
 %%
-void yyerror(char *s) {
-fprintf(stderr, "%s\n", s);
+
+void main() {
+    printf("\nInsert any arithmetic expression
+						\nyou can use following operations:
+            \nadd = n+n
+            \nsubtract = n-n
+            \nmultiply = n*n
+            \ndivide = n/n");
+    yyparse();
 }
-int main(void) {
-yyparse();
-return 0;
+
+void yyerror() {
+  printf("\nentered expression is invalid");
 }
