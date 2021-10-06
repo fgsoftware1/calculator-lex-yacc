@@ -24,7 +24,7 @@
 
 program:
 	END
-	program expr END { printf("%d\n", $2); }
+	program expr END { printf("%f\n", $2); }
   |
   ;
 expr:
