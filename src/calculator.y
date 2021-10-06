@@ -23,8 +23,8 @@ program:
   ;
 expr:
 	NUMBER	{$$=$1;}
-	|	expr PLUS	expr{$$=$1+$3;}
-	|	expr MINUS	expr{$$=$1-$3;}
+	|	expr '+'	expr{$$=$1+$3;}
+	|	expr '-'	expr{$$=$1-$3;}
 	|	expr TIMES	expr{$$=$1*$3;}
 	|	expr DIVIDE expr{$$=$1/$3;}
 	;
