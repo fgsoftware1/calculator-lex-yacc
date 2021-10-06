@@ -17,7 +17,7 @@ MULTIPLY  return '*';
 TIMES     return '*';
 DIVIDE    return '/';
 [ \t] ;
-.           yyerror("invalid character");~
+.        	yyerror("invalid character");
 
 %%
 
