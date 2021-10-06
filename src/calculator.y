@@ -29,8 +29,8 @@ program:
   ;
 expr:
 	NUMBER	{	$$	=	$1;	}
-	|	MINUS expr %prec NEG	{	$$ = -$2 }
-	|	LEFT expr RIGHT	{	$$ = $2	}
+	|	MINUS expr %prec NEG	{	$$ = -$2; }
+	|	LEFT expr RIGHT	{	$$ = $2;	}
 	| expr PLUS expr { $$ = $1 + $3; }
   | expr MINUS expr { $$ = $1 - $3; }
   | expr MULTIPLY expr { $$ = $1 * $3; }
