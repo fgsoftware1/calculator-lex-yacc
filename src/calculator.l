@@ -13,8 +13,7 @@ real {integer}("."{integer})?{exponent}?
 %%
 
 {white} {	}
-{real}	{
-	yylval = atof(yytext);
+{real}	{	yylval = atof(yytext);
 	return NUMBER;
 }
 "\n": return END;
