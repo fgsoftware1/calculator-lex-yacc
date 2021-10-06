@@ -24,9 +24,9 @@ line:
 Expression:
 	NUMBER	{$$=$1;}
 	|	Expression PLUS	Expression{$$=$1+$3;}
-	|	Expression MINUS	Expression{$$=$1-$3}
-	|	Expression TIMES	Expression{$$=$1*$3}
-	|	Expression DIVIDE Expression{$$=$1/$3}
+	|	Expression MINUS	Expression{$$=$1-$3;}
+	|	Expression TIMES	Expression{$$=$1*$3;}
+	|	Expression DIVIDE Expression{$$=$1/$3;}
 
 %%
 
