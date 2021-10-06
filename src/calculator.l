@@ -6,18 +6,18 @@
 %}
 
 %%
-[ \t];
-[0-9]+ 	{
-					yylval = atoi(yytext);
-					return NUMBER;
-				}
-PLUS        return '+';
-MINUS       return '-';
-MULTIPLY    return '*';
-TIMES       return '*';
-DIVIDE      return '/';
-[-+*/\n]    return *yytext;
-.   yyerror("invalid character");
+
+[0-9]+	{ yylval = atoi(yytext);
+          return INTEGER;
+        }
+[-+*/\n]	return *yytext;
+PLUS      return '+';
+MINUS     return '-';
+MULTIPLY  return '*';
+TIMES     return '*';
+DIVIDE    return '/';
+[ \t]	;
+.      		yyerror("invalid character");
 
 %%
 
