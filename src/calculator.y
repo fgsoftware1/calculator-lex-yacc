@@ -31,13 +31,8 @@ Expression:
 %%
 
 void main() {
-    printf("\nInsert any arithmetic expression
-						\nyou can use following operations:
-            \nadd = n+n
-            \nsubtract = n-n
-            \nmultiply = n*n
-            \ndivide = n/n");
-    yyparse();
+  printf("\nInsert any arithmetic expression\nyou can use following operations\nadd = n+n\nsubtract = n-n\nmultiply = n*n\ndivide = n/n");
+  yyparse();
 }
 
 void yyerror() {
