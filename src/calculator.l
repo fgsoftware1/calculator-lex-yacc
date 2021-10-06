@@ -1,23 +1,25 @@
 %{
-		#include <stdlib.h>
-		#include "y.tab.h"
-		void yyerror(char *);
+	#define YYSTYPE double
+	#include <stdlib.h>
+	#include "y.tab.h"
+	void yyerror(char *);
 %}
+
+white [ \t]+
+digit [0-9]
 
 %%
 
-[0-9]+	{
-					yylval = atoi(yytext);
-          return NUMBER;
-        }
-[-+*/\n]	return *yytext;
-PLUS      return '+';
-MINUS     return '-';
-MULTIPLY  return '*';
-TIMES     return '*';
-DIVIDE    return '/';
-[ \t] ;
-.        	yyerror("invalid character");
+.			yyerror("invalid character");
+white {	}
+digit	{	return NUMBER;	}
+"\n": return END;
+"(": return LEFT;
+")": return RIGHT;
+"+": return PLUS;
+"-": return MINUS;
+"*": return MULTIPLY;
+"/": return DIVIDE;
 
 %%
 

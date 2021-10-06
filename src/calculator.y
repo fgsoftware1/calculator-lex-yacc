@@ -5,19 +5,30 @@
 %}
 
 %token NUMBER
+%token PLUS
+%token MINUS
+%token MULTIPLY
+%token DIVIDE
+
+%left PLUS
+%left MINUS
+%left MULTIPLY
+%left DIVIDE
+%left NEG
 
 %%
 
 program:
-	program expr '\n' { printf("%d\n", $2); }
+	END
+	program expr END { printf("%d\n", $2); }
   |
   ;
 expr:
 	NUMBER	{	$$	=	$1;	}
-	| expr '+' expr { $$ = $1 + $3; }
-  | expr '-' expr { $$ = $1 - $3; }
-  | expr '*' expr { $$ = $1 * $3; }
-  | expr '/' expr { $$ = $1 / $3; }
+	| expr PLUS expr { $$ = $1 + $3; }
+  | expr MINUS expr { $$ = $1 - $3; }
+  | expr MULTIPLY expr { $$ = $1 * $3; }
+  | expr DIVIDE expr { $$ = $1 / $3; }
 	;
 
 %%
