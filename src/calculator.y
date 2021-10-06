@@ -8,34 +8,23 @@
 %}
 
 %token NUMBER
-%token END
-%token PLUS
-%token MINUS
-%token MULTIPLY
-%token DIVIDE
-%token LEFT
-%token RIGHT
 
-%left PLUS
-%left MINUS
-%left MULTIPLY
-%left DIVIDE
 %left NEG
 
 %%
 
 program:
-	END
-	|	expr END { printf("Result: %f\n", $1); }
+	'\n'
+	|	expr '\n' { printf("Result: %f\n", $1); }
   ;
 expr:
 	NUMBER	{	$$	=	$1;	}
-	|	MINUS expr %prec NEG	{	$$ = -$2; }
-	|	LEFT expr RIGHT	{	$$ = $2;	}
-	| expr PLUS expr { $$ = $1 + $3; }
-  | expr MINUS expr { $$ = $1 - $3; }
-  | expr MULTIPLY expr { $$ = $1 * $3; }
-  | expr DIVIDE expr { $$ = $1 / $3; }
+	|	'-' expr %prec NEG	{	$$ = -$2; }
+	|	'(' expr ')'	{	$$ = $2;	}
+	| expr '-' expr { $$ = $1 + $3; }
+  | expr '-' expr { $$ = $1 - $3; }
+  | expr '*' expr { $$ = $1 * $3; }
+  | expr '/' expr { $$ = $1 / $3; }
 	;
 
 %%
