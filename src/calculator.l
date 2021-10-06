@@ -6,11 +6,17 @@
 
 white [ \t]+
 digit [0-9]
+integer	{digit}+
+exponent [eE] [+-]?{integer}
+real {integer}("."{integer})?{exponent}?
 
 %%
 
-white {	}
-digit	{	return NUMBER;	}
+{white} {	}
+{real}	{
+	yyval = atof(yytext);
+	return NUMBER;
+}
 "\n": return END;
 "(": return LEFT;
 ")": return RIGHT;
