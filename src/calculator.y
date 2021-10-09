@@ -45,6 +45,14 @@ void yyerror(char *s) {
 }
 
 int main() {
-	printf("\nInsert any arithmetic expression\nyou can use following operations\nadd = n+n\nsubtract = n-n\nmultiply = n*n\ndivide = n/n\n");
+	printf("\nInsert any arithmetic expression\n
+	you can use following operations\n
+	NOTE: negative numbers are allowed\n
+	add = n+n\n
+	subtract = n-n\n
+	multiply = n*n\n
+	divide = n/n\n
+	mod = n%n\n
+	pow = n^n");
 	yyparse();
 }
