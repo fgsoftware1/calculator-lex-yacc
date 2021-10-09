@@ -7,27 +7,21 @@
 %}
 
 %token NUMBER
-%token EOL
 %token POW
 %token MODULUS
-%token LEFT RIGHT
-%token PLUS MINUS
 %token MULTIPLY DIVIDE
-
-%left PLUS MINUS
-%left MULTIPLY DIVIDE
 
 %%
 
 program:
-	program expr EOL { printf("Result: %d\n", $2); }
+	program expr '\n' { printf("Result: %d\n", $2); }
 	|
   ;
 expr:
 	NUMBER	{	$$	=	$1;	}
-	|	LEFT expr RIGHT	{	$$ = $2;	}
-	| expr "+" expr { $$ = $1 + $3; }
-  | expr MINUS expr { $$ = $1 - $3; }
+	|	'(' expr ')'	{	$$ = $2;	}
+	| expr '+' expr { $$ = $1 + $3; }
+  | expr '-' expr { $$ = $1 - $3; }
   | expr MULTIPLY expr { $$ = $1 * $3; }
   | expr DIVIDE expr { $$ = $1 / $3; }
 	|	expr POW expr { $$ = pow($1,$3); }
