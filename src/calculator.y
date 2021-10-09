@@ -18,7 +18,7 @@
 %token	SQRT
 
 %left	PLUS MINUS
-%left TIMES DIVIDE
+%left 	TIMES DIVIDE
 %left	NEG
 
 %right POWER
@@ -26,7 +26,7 @@
 %%
 
 program:
-	program expr EOL { printf("Result: %d\n", $1); }
+	program expr EOL { printf("Result: %d\n", $2); }
 	|
   ;
 expr:
