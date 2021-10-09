@@ -33,10 +33,10 @@ expr:
 	NUMBER	{	$$	=	$1;	}
 	|	MINUS expr %prec NEG { $$ = -$2; }
 	|	LEFT expr RIGHT	{	$$ = $2;	}
-	| expr PLUS expr { $$ = $1 + $3; }
-  | expr MINUS expr { $$ = $1 - $3; }
-  | expr TIMES expr { $$ = $1 * $3; }
-  | expr DIVIDE expr { $$ = $1 / $3; }
+	| 	expr PLUS expr { $$ = $1 + $3; }
+  	| 	expr MINUS expr { $$ = $1 - $3; }
+  	| 	expr TIMES expr { $$ = $1 * $3; }
+  	| 	expr DIVIDE expr { $$ = $1 / $3; }
 	|	expr POW expr { $$ = pow($1,$3); }
 	|	expr MODULUS expr { $$ = $1 % $3; }
 	|	expr SQRT expr { $$ = sqrt($2); }
