@@ -50,7 +50,10 @@ void yyerror(char *s) {
 
 int main() {
 	printf("\nInsert any arithmetic expression\n");
-	printf("\033[0;34m","NOTE:","\033[0m","negative numbers are allowed\n");
+	printf("\033[0;34m");
+	printf("NOTE:");
+	printf("\033[0m");
+	printf("negative numbers are allowed\n");
 	printf("you can use following operations: \n");
 	printf("add = n+n\n");
 	printf("subtract = n-n\n");
