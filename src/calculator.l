@@ -15,7 +15,7 @@
 LEFT		return "(";
 RIGHT		return ")";
 EOF 		return "\n";
-PLUS		return "+"
+PLUS		return "+";
 "-"     return MINUS;
 "*"  		return MULTIPLY;
 "/"     return DIVIDE;
