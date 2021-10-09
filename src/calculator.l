@@ -7,20 +7,20 @@
 %%
 
 [-+*/%\n]	return *yytext;
+[ \t] { ; }
 [0-9]+	{
 					yylval = atoi(yytext);
           return NUMBER;
         }
 "("			return LEFT;
 ")"			return RIGHT;
-END 			return '\n';
-PLUS      return '+';
-MINUS     return '-';
-MULTIPLY  return '*';
-DIVIDE    return '/';
-MODULUS		return '%';
-POWER 		return '^';
-[ \t] ;
+"\n" 		return EOF;
+"+"     return PLUS;
+"-"     return MINUS;
+"*"  		return MULTIPLY;
+"/"     return DIVIDE;
+"%"			return MODULUS;
+"^" 		return POW;
 .        	yyerror("invalid character");
 
 %%
