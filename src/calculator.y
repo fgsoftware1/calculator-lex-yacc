@@ -9,7 +9,7 @@
 %require "3.2"
 
 %token	EOL
-%token<du> 	NUMBER
+%token 	NUMBER
 %token 	LEFT RIGHT
 %token 	POW
 %token	MODULUS
