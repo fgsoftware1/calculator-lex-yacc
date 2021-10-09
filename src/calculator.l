@@ -25,7 +25,7 @@ real {integer}("."{integer})?{exponent}?
 "%"		return MODULUS;
 "(" 	return LEFT;
 ")" 	return RIGHT;
-"\n"	return END;
+"\n"	return EOL;
 .      	yyerror("invalid character");
 
 %%
