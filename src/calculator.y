@@ -6,13 +6,16 @@
 	void yyerror(char *);
 %}
 
+%require "3.2"
+
 %token	EOL
-%token 	NUMBER
+%token<du> 	NUMBER
 %token 	LEFT RIGHT
 %token 	POW
 %token	MODULUS
 %token 	PLUS MINUS
 %token 	TIMES DIVIDE
+%token	SQRT
 
 %left	PLUS MINUS
 %left TIMES DIVIDE
@@ -36,6 +39,7 @@ expr:
   | expr DIVIDE expr { $$ = $1 / $3; }
 	|	expr POW expr { $$ = pow($1,$3); }
 	|	expr MODULUS expr { $$ = $1 % $3; }
+	|	expr SQRT expr { $$ = sqrt($2); }
 	;
 
 %%

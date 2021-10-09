@@ -17,15 +17,16 @@ real {integer}("."{integer})?{exponent}?
 	return NUMBER;
 }
 
-"+" 	return PLUS;
-"-" 	return MINUS;
-"*" 	return TIMES;
-"/" 	return DIVIDE;
-"^" 	return POW;
-"%"		return MODULUS;
-"(" 	return LEFT;
-")" 	return RIGHT;
-"\n"	return EOL;
+"\n"		return EOL;
+"(" 		return LEFT;
+")" 		return RIGHT;
+"+" 		return PLUS;
+"-" 		return MINUS;
+"*" 		return TIMES;
+"/" 		return DIVIDE;
+"^" 		return POW;
+"%"			return MODULUS;
+"sqrt"	return SQRT;
 .      	yyerror("invalid character");
 
 %%
