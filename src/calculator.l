@@ -4,23 +4,28 @@
 	void yyerror(char *);
 %}
 
+white [ \t]+
+digit [0-9]
+integer {digit}+
+exponent [eE][+-]?{integer}
+real {integer}("."{integer})?{exponent}?
+
 %%
 
-[-+*/%\n]	return *yytext;
-[ \t] { ; }
-[0-9]+	{
-					yylval = atoi(yytext);
-          return NUMBER;
-        }
-LEFT			return '(';
-RIGHT			return ')';
-EOF 			return '\n';
-PLUS			return '+';
-MINUS   	return '-';
-MULTIPLY	return '*';
-DIVIDE    return '/';
-MODULUS		return '%';
-POW 			return '^';
+{white} { }
+{real} { yylval=atof(yytext);
+	return NUMBER;
+}
+
+"+" 	return PLUS;
+"-" 	return MINUS;
+"*" 	return TIMES;
+"/" 	return DIVIDE;
+"^" 	return POW;
+"%"		return MODULUS;
+"(" 	return LEFT;
+")" 	return RIGHT;
+"\n"	return END;
 .      	yyerror("invalid character");
 
 %%
