@@ -26,7 +26,7 @@
 %%
 
 program:
-	program expr EOL { printf("Result: %d\n", $2); }
+	program expr EOL { printf("Result: %d\n", $1); }
 	|
   ;
 expr:
