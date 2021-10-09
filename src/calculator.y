@@ -55,7 +55,7 @@ int main() {
 	printf("\033[0m");
 	printf("\033[0;32m");
 	printf("negative numbers are allowed\n");
-	printf("\033[0");
+	printf("\033[0m");
 	printf("you can use following operations: \n");
 	printf("add = n+n\n");
 	printf("subtract = n-n\n");
