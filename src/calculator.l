@@ -15,13 +15,13 @@
 LEFT		return "(";
 RIGHT		return ")";
 EOF 		return "\n";
-PLUS		return "+";
+PLUS		return '+';
 "-"     return MINUS;
 "*"  		return MULTIPLY;
 "/"     return DIVIDE;
 "%"			return MODULUS;
 "^" 		return POW;
-.        	yyerror("invalid character");
+.      	yyerror("invalid character");
 
 %%
 
