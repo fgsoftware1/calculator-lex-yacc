@@ -53,7 +53,9 @@ int main() {
 	printf("\033[0;34m");
 	printf("NOTE:");
 	printf("\033[0m");
+	printf("\033[0;32m");
 	printf("negative numbers are allowed\n");
+	printf("\033[0");
 	printf("you can use following operations: \n");
 	printf("add = n+n\n");
 	printf("subtract = n-n\n");
@@ -61,6 +63,6 @@ int main() {
 	printf("divide = n/n\n");
 	//printf("mod = n%n\n"); temporary disabled
 	printf("pow = n^n\n");
-	printf("sqrt = qrt(n)");
+	printf("sqrt = sqrt(n)\n");
 	yyparse();
 }
