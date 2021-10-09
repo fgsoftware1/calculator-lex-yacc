@@ -39,7 +39,7 @@ expr:
   	| 	expr DIVIDE expr { $$ = $1 / $3; }
 	|	expr POW expr { $$ = pow($1,$3); }
 	|	expr MODULUS expr { $$ = $1 % $3; }
-	|	expr SQRT expr { $$ = sqrt($3); }
+	|	expr SQRT('expr') { $$ = sqrt($3); }
 	;
 
 %%
