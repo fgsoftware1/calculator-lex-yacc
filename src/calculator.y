@@ -21,7 +21,8 @@
 %left 	TIMES DIVIDE
 %left	NEG
 
-%right POWER
+%right POW
+%right SQRT
 
 %%
 
