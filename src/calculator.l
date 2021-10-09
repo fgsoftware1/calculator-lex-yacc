@@ -12,15 +12,15 @@
 					yylval = atoi(yytext);
           return NUMBER;
         }
-LEFT		return '(';
-RIGHT		return ')';
-EOF 		return '\n';
-PLUS		return '+';
-MINUS   return '-';
-"*"  		return MULTIPLY;
-"/"     return DIVIDE;
-"%"			return MODULUS;
-"^" 		return POW;
+LEFT			return '(';
+RIGHT			return ')';
+EOF 			return '\n';
+PLUS			return '+';
+MINUS   	return '-';
+MULTIPLY	return '*';
+DIVIDE    return '/';
+MODULUS		return '%';
+POW 			return '^';
 .      	yyerror("invalid character");
 
 %%

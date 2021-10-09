@@ -7,9 +7,6 @@
 %}
 
 %token NUMBER
-%token POW
-%token MODULUS
-%token MULTIPLY DIVIDE
 
 %%
 
@@ -22,10 +19,10 @@ expr:
 	|	'(' expr ')'	{	$$ = $2;	}
 	| expr '+' expr { $$ = $1 + $3; }
   | expr '-' expr { $$ = $1 - $3; }
-  | expr MULTIPLY expr { $$ = $1 * $3; }
-  | expr DIVIDE expr { $$ = $1 / $3; }
-	|	expr POW expr { $$ = pow($1,$3); }
-	|	expr MODULUS expr { $$ = $1 % $3; }
+  | expr '*' expr { $$ = $1 * $3; }
+  | expr '/' expr { $$ = $1 / $3; }
+	|	expr '^' expr { $$ = pow($1,$3); }
+	|	expr '%' expr { $$ = $1 % $3; }
 	;
 
 %%
