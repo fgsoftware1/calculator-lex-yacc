@@ -26,7 +26,7 @@ program:
 expr:
 	NUMBER	{	$$	=	$1;	}
 	|	LEFT expr RIGHT	{	$$ = $2;	}
-	| expr PLUS expr { $$ = $1 + $3; }
+	| expr "+" expr { $$ = $1 + $3; }
   | expr MINUS expr { $$ = $1 - $3; }
   | expr MULTIPLY expr { $$ = $1 * $3; }
   | expr DIVIDE expr { $$ = $1 / $3; }

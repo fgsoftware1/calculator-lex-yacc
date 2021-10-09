@@ -12,10 +12,10 @@
 					yylval = atoi(yytext);
           return NUMBER;
         }
-"("			return LEFT;
-")"			return RIGHT;
-"\n" 		return EOF;
-[+]	{return PLUS;}
+LEFT		return "(";
+RIGHT		return ")";
+EOF 		return "\n";
+PLUS		return "+"
 "-"     return MINUS;
 "*"  		return MULTIPLY;
 "/"     return DIVIDE;
