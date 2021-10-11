@@ -6,7 +6,7 @@
 	void yyerror(char *);
 %}
 
-%require "3.8"
+%require "3.5"
 
 %token	EOL
 %token 	NUMBER
