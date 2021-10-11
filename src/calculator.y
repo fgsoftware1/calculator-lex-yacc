@@ -62,7 +62,7 @@ int main() {
 	printf("subtract = n-n\n");
 	printf("multiply = n*n\n");
 	printf("divide = n/n\n");
-	printf("mod = n")
+	printf("mod = n");
 	printf("%");
 	printf("n\n");
 	printf("pow = n^n\n");
