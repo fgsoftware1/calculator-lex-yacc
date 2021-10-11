@@ -2,7 +2,7 @@
 all: y.tab.c ../lex.yy.c ../calculator
 
 y.tab.c: calculator.y
-	bison -d calculator.y -o $@
+	bison -d -Wcex calculator.y -o $@
 
 ../lex.yy.c: calculator.l
 	flex calculator.l
