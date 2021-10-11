@@ -4,7 +4,7 @@
 	void yyerror(char *);
 %}
 
-white [ \t]+
+white [ \t\n]+
 digit [0-9]
 integer {digit}+
 exponent [eE][+-]?{integer}
