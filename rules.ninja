@@ -1,4 +1,4 @@
-YACCPARAMS = -d
+YACCPARAMS = -d -Wcex
 CCPARAMS = -lfl -lm
 
 rule HELP
