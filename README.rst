@@ -2,7 +2,7 @@
 calculator-yacc-lex
 ===================
 
-compilation
+**compilation**
 
 run ``ninja`` to compile with ninja-build
 
