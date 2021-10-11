@@ -1,4 +1,5 @@
 YACCPARAMS = -d
+CCPARAMS = -lfl -lm
 
 rule HELP
   command = ninja -t targets
