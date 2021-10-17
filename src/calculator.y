@@ -18,17 +18,17 @@
 %token	SQRT
 %token 	SIN
 
+%left	NEG
 %left	PLUS MINUS
 %left 	TIMES DIVIDE
-%left	NEG
-%left   SIN
-%left   SQRT
 %left 	POW
+%left   SQRT
+%left   SIN
 
 %%
 
 program:
-	program expr EOL { printf("Result: %lf\n", $2); }
+	program expr EOL { printf("Result: %d\n", $2); }
 	|
   	;
 expr:
