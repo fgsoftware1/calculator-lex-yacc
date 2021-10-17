@@ -5,7 +5,6 @@
 	#include <stdlib.h>
 	extern int yylex(void);
 	void yyerror(char *);
-	YYSTYPE last_value = 0;
 %}
 
 %require "3.5"
@@ -29,12 +28,11 @@
 %%
 
 program:
-	program expr EOL { printf("Result: %f\n", last_value=$2); }
+	program expr EOL { printf("Result: %f\n", $2); }
 	|
   	;
 expr:
 	NUMBER						{ $$ =	$1;	}
-	|	EOL						{ $$ = last_value; }
 	|	MINUS expr %prec NEG 	{ $$ = -$2; }
 	|	LEFT expr RIGHT			{ $$ = $2;	}
 	| 	expr PLUS expr 			{ $$ = $1 + $3; }
