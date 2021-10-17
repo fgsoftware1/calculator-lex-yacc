@@ -31,7 +31,7 @@ program:
 	|
   ;
 expr:
-	NUMBER	{ $$ =	$1;	}
+	term                 { $$ = $1;         }
 	|	MINUS expr %prec NEG { $$ = -$2; }
 	|	LEFT expr RIGHT		{ $$ = $2;	}
 	| 	expr PLUS expr 		{ $$ = $1 + $3; }
