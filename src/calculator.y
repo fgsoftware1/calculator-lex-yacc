@@ -23,6 +23,7 @@
 %left 	TIMES DIVIDE
 %left	NEG
 
+%right   SIN
 %right   SQRT
 %right 	 POW
 
