@@ -28,12 +28,8 @@
 
 %%
 
-list:
-    |    list '\n'
-    |    list expr '\n'			{ printf("%.8g\n",last_value=$2); }
-	;
 program:
-	program expr EOL { printf("Result: %f\n", $2); }
+	program expr EOL { printf("Result: %.8g\n", last_value=$2); }
 	|
   	;
 expr:
