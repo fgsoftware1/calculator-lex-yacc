@@ -29,11 +29,12 @@
 %%
 
 program:
-	program expr EOL { printf("Result: %f\n", last_value=$2); }
+	program expr EOL { printf("Result: %.8g\n", last_value=$2); }
 	|
   	;
 expr:
 	NUMBER						{ $$ =	$1;	}
+	|	EOL						{ $$ = last_value; }
 	|	MINUS expr %prec NEG 	{ $$ = -$2; }
 	|	LEFT expr RIGHT			{ $$ = $2;	}
 	| 	expr PLUS expr 			{ $$ = $1 + $3; }
