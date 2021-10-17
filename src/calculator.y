@@ -1,6 +1,7 @@
 %{
 	#include <math.h>
 	#include <stdio.h>
+	#include <stdlib.h>
 	#define YYSTYPE double
     YYSTYPE last_value = 0;
 	extern int yylex(void);
@@ -20,8 +21,8 @@
 %left	PLUS MINUS
 %left 	TIMES DIVIDE
 %left	NEG
-%left   SQRT
 
+%left   SQRT
 %right POW
 
 %%
