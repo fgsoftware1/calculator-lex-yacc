@@ -1,9 +1,11 @@
 %{
+	#define YYSTYPE double
 	#include <math.h>
 	#include <stdio.h>
 	#include <stdlib.h>
 	extern int yylex(void);
 	void yyerror(char *);
+	YYSTYPE last_value = 0;
 %}
 
 %require "3.5"
@@ -12,7 +14,7 @@
 %token 	NUMBER
 %token 	LEFT RIGHT
 %token 	POW
-%token  MODULUS
+//%token  MODULUS
 %token 	PLUS MINUS
 %token 	TIMES DIVIDE
 %token	SQRT
@@ -38,7 +40,7 @@ expr:
   	| 	expr MINUS expr 		{ $$ = $1 - $3; }
   	| 	expr TIMES expr 		{ $$ = $1 * $3; }
   	| 	expr DIVIDE expr 		{ $$ = $1 / $3; }
-	|	expr MODULUS expr 		{ $$ = $1 % $3; }
+	/* |	expr MODULUS expr 		{ $$ = $1 % $3; } */
 	|	expr POW expr 			{ $$ = pow($1,$3); }
 	|	SQRT LEFT expr RIGHT	{ $$ = sqrt($3); }
 	;
@@ -62,7 +64,7 @@ int main() {
 	printf("subtract = n-n\n");
 	printf("multiply = n*n\n");
 	printf("divide = n/n\n");
-	printf("mod = n%%n\n");
+	//printf("mod = n%%n\n");
 	printf("pow = n^n\n");
 	printf("sqrt = sqrt(n)\n");
 	yyparse();
