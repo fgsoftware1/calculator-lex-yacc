@@ -22,13 +22,15 @@
 %left	PLUS MINUS
 %left 	TIMES DIVIDE
 %left	NEG
-
-%right   SIN
-%right   SQRT
-%right 	 POW
+%left   SIN
+%left   SQRT
+%left 	POW
 
 %%
 
+list:
+    |    list '\n'
+    |    list expr '\n'			{ printf("%.8g\n",last_value=$2);
 program:
 	program expr EOL { printf("Result: %f\n", $2); }
 	|
