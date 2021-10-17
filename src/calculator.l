@@ -24,7 +24,6 @@ real {integer}("."{integer})?{exponent}?
 "-" 	return MINUS;
 "*" 	return TIMES;
 "/" 	return DIVIDE;
-"%"		return MODULUS;
 "^" 	return POW;
 "sqrt"	return SQRT;
 .      	yyerror("invalid character");
