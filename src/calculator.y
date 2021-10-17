@@ -46,7 +46,7 @@ expr:
 
 term:     
 	NUMBER              { $$ = $1;         }
-    |	LAST        	{ $$ = last_value; }
+    |	EOL        		{ $$ = last_value; }
     |   LEFT expr RIGHT	{ $$ = $2;         }
     ;
 
