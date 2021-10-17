@@ -29,7 +29,7 @@
 %%
 
 program:
-	program expr EOL { printf("Result: %.8g\n", last_value=$2); }
+	program expr EOL { printf("Result: %f\n", last_value=$2); }
 	|
   	;
 expr:
