@@ -8,10 +8,10 @@ rule CLEAN
   command = ninja -t clean
   description = cleaning built files
 rule yacc
-  command = yacc  $in -o $out $YACCPARAMS
+  command = bison  $in -o $out $YACCPARAMS
   description = --BISON compiling $in
 rule lex
-  command = lex  $in $out
+  command = flex  $in $out
   description = --FLEX compiling $in
 rule link
   command = cc  $in -o $out $CCPARAMS
