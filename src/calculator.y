@@ -30,7 +30,7 @@
 %%
 
 program:
-	program expr EOL { printf("Result: %d\n", $2); }
+	program expr EOL { printf("Result: \n", $2); }
 	|
   ;
 expr:
