@@ -12,7 +12,7 @@
 %token 	NUMBER
 %token 	LEFT RIGHT
 %token 	POW
-%token  MODULuS
+%token  MODULUS
 %token 	PLUS MINUS
 %token 	TIMES DIVIDE
 %token	SQRT
