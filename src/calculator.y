@@ -1,8 +1,9 @@
 %{
 	#include <math.h>
 	#include <stdio.h>
-	#include <stdlib.h>
-	int yylex(void);
+	#define YYSTYPE double
+    YYSTYPE last_value = 0;
+	extern int yylex(void);
 	void yyerror(char *);
 %}
 
@@ -20,9 +21,9 @@
 %left	PLUS MINUS
 %left 	TIMES DIVIDE
 %left	NEG
+%left   SQRT
 
 %right POW
-%right SQRT
 
 %%
 
@@ -31,17 +32,23 @@ program:
 	|
   ;
 expr:
-	NUMBER	{ $$	=	$1;	}
+	NUMBER	{ $$ =	$1;	}
 	|	MINUS expr %prec NEG { $$ = -$2; }
-	|	LEFT expr RIGHT	{ $$ = $2;	}
-	| 	expr PLUS expr { $$ = $1 + $3; }
-  	| 	expr MINUS expr { $$ = $1 - $3; }
-  	| 	expr TIMES expr { $$ = $1 * $3; }
-  	| 	expr DIVIDE expr { $$ = $1 / $3; }
-	|	expr POW expr { $$ = pow($1,$3); }
-	|	expr MODULUS expr { $$ = $1 % $3; }
-	|	expr SQRT expr { $$ = sqrt($1); }
+	|	LEFT expr RIGHT		{ $$ = $2;	}
+	| 	expr PLUS expr 		{ $$ = $1 + $3; }
+  	| 	expr MINUS expr 	{ $$ = $1 - $3; }
+  	| 	expr TIMES expr 	{ $$ = $1 * $3; }
+  	| 	expr DIVIDE expr 	{ $$ = $1 / $3; }
+	|	expr POW expr 		{ $$ = pow($1,$3); }
+	|	expr MODULUS expr 	{ $$ = $1 % $3; }
+	|	SQRT term 			{ $$ = sqrt($2); }
 	;
+
+term:     
+	NUMBER              { $$ = $1;         }
+    |	LAST        	{ $$ = last_value; }
+    |   LEFT expr RIGHT	{ $$ = $2;         }
+    ;
 
 %%
 
