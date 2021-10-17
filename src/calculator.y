@@ -40,7 +40,7 @@ expr:
   	| 	expr MINUS expr 		{ $$ = $1 - $3; }
   	| 	expr TIMES expr 		{ $$ = $1 * $3; }
   	| 	expr DIVIDE expr 		{ $$ = $1 / $3; }
-	/* |	expr MODULUS expr 		{ $$ = $1 % $3; } */
+	//|	expr MODULUS expr 		{ $$ = $1 % $3; }
 	|	expr POW expr 			{ $$ = pow($1,$3); }
 	|	SQRT LEFT expr RIGHT	{ $$ = sqrt($3); }
 	;
