@@ -13,7 +13,6 @@
 %token 	NUMBER
 %token 	LEFT RIGHT
 %token 	POW
-%token	MODULUS
 %token 	PLUS MINUS
 %token 	TIMES DIVIDE
 %token	SQRT
@@ -32,7 +31,7 @@ program:
 	|
   ;
 expr:
-	term                 	{ $$ = $1; }
+	NUMBER	{ $$ =	$1;	}
 	|	MINUS expr %prec NEG { $$ = -$2; }
 	|	LEFT expr RIGHT		{ $$ = $2;	}
 	| 	expr PLUS expr 		{ $$ = $1 + $3; }
@@ -40,12 +39,10 @@ expr:
   	| 	expr TIMES expr 	{ $$ = $1 * $3; }
   	| 	expr DIVIDE expr 	{ $$ = $1 / $3; }
 	|	expr POW expr 		{ $$ = pow($1,$3); }
-	|	expr MODULUS expr 	{ $$ = $1 % $3; }
 	|	SQRT term 			{ $$ = sqrt($2); }
 	;
 
 term:     
-	NUMBER              { $$ = $1;         }
     |	EOL        		{ $$ = last_value; }
     |   LEFT expr RIGHT	{ $$ = $2;         }
     ;
@@ -69,7 +66,6 @@ int main() {
 	printf("subtract = n-n\n");
 	printf("multiply = n*n\n");
 	printf("divide = n/n\n");
-	printf("mod = n%%n\n");
 	printf("pow = n^n\n");
 	printf("sqrt = sqrt(n)\n");
 	yyparse();
