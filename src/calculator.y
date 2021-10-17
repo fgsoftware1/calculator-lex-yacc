@@ -1,7 +1,6 @@
 %{
 	#include <math.h>
 	#include <stdio.h>
-	#define YYSTYPE double
     YYSTYPE last_value = 0;
 	extern int yylex(void);
 	void yyerror(char *);
