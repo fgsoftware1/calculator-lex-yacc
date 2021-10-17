@@ -31,10 +31,11 @@
 list:
     |    list '\n'
     |    list expr '\n'			{ printf("%.8g\n",last_value=$2); }
+	;
 program:
 	program expr EOL { printf("Result: %f\n", $2); }
 	|
-  ;
+  	;
 expr:
 	NUMBER						{ $$ =	$1;	}
 	|	MINUS expr %prec NEG 	{ $$ = -$2; }
