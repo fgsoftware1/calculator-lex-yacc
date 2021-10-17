@@ -17,6 +17,7 @@
 %token 	PLUS MINUS
 %token 	TIMES DIVIDE
 %token	SQRT
+%token 	SIN
 
 %left	PLUS MINUS
 %left 	TIMES DIVIDE
@@ -41,6 +42,7 @@ expr:
   	| 	expr DIVIDE expr 		{ $$ = $1 / $3; }
 	|	expr POW expr 			{ $$ = pow($1,$3); }
 	|	SQRT LEFT expr RIGHT	{ $$ = sqrt($3); }
+	|	SIN	 LEFT expr RIGHT    { $$ = sin($3); } 
 	;
 
 %%
