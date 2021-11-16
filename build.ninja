@@ -1,4 +1,4 @@
-ninja_required_version = 1.5
+ninja_required_version = 1.10
 
 include rules.ninja
 
