@@ -2,7 +2,6 @@
 	#include <math.h>
 	#include <stdio.h>
 	#include <stdlib.h>
-	extern int yylex(void);
 	void yyerror(char *);
 %}
 
@@ -15,12 +14,14 @@
 %token 	PLUS MINUS
 %token 	TIMES DIVIDE
 %token	SQRT
+%token 	MODULUS
 
 %left	NEG
 %left	PLUS MINUS
 %left 	TIMES DIVIDE
 %left 	POW
 %left   SQRT
+%left 	MODULUS
 
 %%
 
@@ -36,6 +37,7 @@ expr:
   	| 	expr MINUS expr 		{ $$ = $1 - $3; }
   	| 	expr TIMES expr 		{ $$ = $1 * $3; }
   	| 	expr DIVIDE expr 		{ $$ = $1 / $3; }
+	| 	expr MODULUS expr 		{ $$ = $1 % $3; }
 	|	expr POW expr 			{ $$ = pow($1,$3); }
 	|	SQRT LEFT expr RIGHT	{ $$ = sqrt($3); }
 	;
@@ -45,6 +47,9 @@ expr:
 void yyerror(char *s) {
 	printf("%s\n", s);
 }
+
+extern int yylex();
+extern int yyparse();
 
 int main() {
 	printf("\nInsert any arithmetic expression\n");
