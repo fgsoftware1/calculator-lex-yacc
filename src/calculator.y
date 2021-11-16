@@ -52,7 +52,7 @@ int main() {
 	printf("NOTE:");
 	printf("\033[0m");
 	printf("\033[0;32m");
-	printf("negative numbers are allowed\n");
+	printf("negative numbers and parentheses are allowed\n");
 	printf("\033[0m");
 	printf("you can use following operations: \n");
 	printf("add = n+n\n");
