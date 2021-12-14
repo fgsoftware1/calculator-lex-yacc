@@ -16,6 +16,6 @@ jobs:
     - name: deps
       run: sudo bash ./linux-deps.sh
     - name: build
-      run: bash ./autogen.sh
+      run: bash make
     - name: check-files
       run: ls
