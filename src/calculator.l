@@ -3,19 +3,17 @@
 %{
 	#include <stdlib.h>
 	#include "y.tab.h"
+    #define YYSTYPE double
 	void yyerror(char *);
 %}
 
+number [0-9]+\.?|[0-9]*\.[0-9]+
 white [ \t]+
-digit [0-9]
-integer {digit}+
-exponent [eE][+-]?{integer}
-real {integer}("."{integer})?{exponent}?
 
 %%
 
 {white} { }
-{real} { yylval=atof(yytext);
+{number} { yylval=atof(yytext);
 	return NUMBER;
 }
 
@@ -29,6 +27,9 @@ real {integer}("."{integer})?{exponent}?
 "^" 	return POW;
 "%"		return MODULUS;
 "sqrt"	return SQRT;
+"tan"   return TAN;
+"cos"   return COS;
+"sin"   return SIN;
 .      	yyerror("invalid character");
 
 %%
