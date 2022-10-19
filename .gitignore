@@ -15,3 +15,9 @@ install-sh
 missing
 configure.scan
 autoscan.log
+src/Makefile.in
+src/Makefile
+Makefile
+Makefile.in
+configure
+aclocal.m4
