@@ -4,3 +4,14 @@
 /y.tab.h
 /.vscode
 /calculator
+src/y.tab.c
+src/y.tab.h
+src/lex.yy.c
+autom4te.cache
+config.log
+compile
+config.status
+install-sh
+missing
+configure.scan
+autoscan.log
